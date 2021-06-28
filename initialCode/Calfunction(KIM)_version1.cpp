@@ -9,7 +9,7 @@ typedef struct integElem{
 	double sum = 0,a = 0,b = 0,dx = 0;
 } integral;
 
-//»çÄ¢¿¬»ê 
+//ì‚¬ì¹™ì—°ì‚° 
 double arithOper(double x,char op, double y){
 	switch(op){
 		case '+': return x + y;
@@ -26,7 +26,7 @@ double arithOper(double x,char op, double y){
 	}
 }
 
-//ÆÑÅä¸®¾ó 
+//íŒ©í† ë¦¬ì–¼ 
 unsigned long long factorial(int x){
 	if(x < 3){
 		return x;
@@ -36,7 +36,7 @@ unsigned long long factorial(int x){
 	}
 }
 
-//ºÎµ¿¼Ò¼ö 
+//ë¶€ë™ì†Œìˆ˜ 
 void floatPoint(float x){
 	union{
 		unsigned int y;
@@ -49,6 +49,7 @@ void floatPoint(float x){
 	}
 }
 
+//ì •ì ë¶„ ê³„ì‚°
 void calSum(double* x,integral* integral,int type = 0){
 	for(int i =0; i<integral->count;i++){ 
     	double resultA = (*x)*(pow(integral->a,5))+ (*(x+1))*(pow(integral->a,4))+(*(x+2))*(pow(integral->a,3))+(*(x+3))*(pow(integral->a,2))+(*(x+4))*(integral->a)+ *(x+5);
@@ -66,15 +67,15 @@ void calSum(double* x,integral* integral,int type = 0){
     }
 }
 
-//´ÙÇ×ÇÔ¼ö Á¤ÀûºĞ(5Â÷ ¹æÁ¤½Ä±îÁö) 
+//ë‹¤í•­í•¨ìˆ˜ ì •ì ë¶„(5ì°¨ ë°©ì •ì‹ê¹Œì§€) 
 double polyIntegral(){
 	integral poly;
 	for(int i =0;i<6;i++){
-		if(i == 5) printf("»ó¼öÇ×ÀÇ °è¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-		else printf("%dÂ÷ Ç×ÀÇ °è¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ",-i+5);
+		if(i == 5) printf("ìƒìˆ˜í•­ì˜ ê³„ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
+		else printf("%dì°¨ í•­ì˜ ê³„ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ",-i+5);
 		scanf("%lf",&poly.x[i]);
 	}
-	printf("ÀûºĞ ±¸°£À» ÀÔ·ÂÇØÁÖ¼¼¿ä. Ex) [2,4] -> 2 4\n");
+	printf("ì ë¶„ êµ¬ê°„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”. Ex) [2,4] -> 2 4\n");
 	scanf("%lf %lf",&poly.a,&poly.b);
     poly.dx = (poly.b-poly.a)/poly.count;
     calSum(poly.x,&poly);
@@ -82,18 +83,18 @@ double polyIntegral(){
 	return poly.sum;
 }
  
-//»ï°¢ÇÔ¼ö Á¤ÀûºĞ(sin(´ÙÇ×),cos(´ÙÇ×) ²Ã¸¸ °¡´É
+//ì‚¼ê°í•¨ìˆ˜ ì •ì ë¶„(sin(ë‹¤í•­),cos(ë‹¤í•­) ê¼´ë§Œ ê°€ëŠ¥
 double triIntegral(){
 	int select;
 	integral tri;
-	printf("1. »çÀÎÇÔ¼ö ÀûºĞ\n2. ÄÚ»çÀÎÇÔ¼ö ÀûºĞ\n¼±ÅÃ :");
+	printf("1. ì‚¬ì¸í•¨ìˆ˜ ì ë¶„\n2. ì½”ì‚¬ì¸í•¨ìˆ˜ ì ë¶„\nì„ íƒ :");
 	scanf("%d",&select);
 	for(int i =0;i<6;i++){
-		if(i == 5) printf("»ó¼öÇ×ÀÇ °è¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-		else printf("%dÂ÷ Ç×ÀÇ °è¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ",-i+5);
+		if(i == 5) printf("ìƒìˆ˜í•­ì˜ ê³„ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
+		else printf("%dì°¨ í•­ì˜ ê³„ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ",-i+5);
 		scanf("%lf",&tri.x[i]);
 	}
-	printf("ÀûºĞ ±¸°£À» ÀÔ·ÂÇØÁÖ¼¼¿ä. Ex) [0,3.141591] -> 0 3.141592\n");
+	printf("ì ë¶„ êµ¬ê°„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”. Ex) [0,3.141591] -> 0 3.141592\n");
 	scanf("%lf %lf",&tri.a,&tri.b);
     tri.dx = (tri.b-tri.a)/tri.count;
     if(select == 1) calSum(tri.x,&tri,1); 
