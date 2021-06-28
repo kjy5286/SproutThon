@@ -49,6 +49,15 @@ void floatPoint(float x){
 	}
 }
 
+//���׽� ��� �Է�
+void inputCoef(integral* integral){
+	for(int i =0;i<6;i++){
+		if(i == 5) printf("상수항의 계수를 입력하세요: ");
+		else printf("%d차 항의 계수를 입력하세요: ",-i+5);
+		scanf("%lf",&integral->x[i]);
+	}
+} 
+
 //정적분 계산
 void calSum(double* x,integral* integral,int type = 0){
 	for(int i =0; i<integral->count;i++){ 
@@ -70,11 +79,7 @@ void calSum(double* x,integral* integral,int type = 0){
 //다항함수 정적분(5차 방정식까지) 
 double polyIntegral(){
 	integral poly;
-	for(int i =0;i<6;i++){
-		if(i == 5) printf("상수항의 계수를 입력하세요: ");
-		else printf("%d차 항의 계수를 입력하세요: ",-i+5);
-		scanf("%lf",&poly.x[i]);
-	}
+	inputCoef(&poly);
 	printf("적분 구간을 입력해주세요. Ex) [2,4] -> 2 4\n");
 	scanf("%lf %lf",&poly.a,&poly.b);
     poly.dx = (poly.b-poly.a)/poly.count;
@@ -89,11 +94,7 @@ double triIntegral(){
 	integral tri;
 	printf("1. 사인함수 적분\n2. 코사인함수 적분\n선택 :");
 	scanf("%d",&select);
-	for(int i =0;i<6;i++){
-		if(i == 5) printf("상수항의 계수를 입력하세요: ");
-		else printf("%d차 항의 계수를 입력하세요: ",-i+5);
-		scanf("%lf",&tri.x[i]);
-	}
+	inputCoef(&tri);
 	printf("적분 구간을 입력해주세요. Ex) [0,3.141591] -> 0 3.141592\n");
 	scanf("%lf %lf",&tri.a,&tri.b);
     tri.dx = (tri.b-tri.a)/tri.count;
@@ -104,6 +105,6 @@ double triIntegral(){
 }
 
 int main(){
-	triIntegral();
+	polyIntegral();
 	return 0;
 }
