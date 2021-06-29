@@ -262,7 +262,6 @@ void QuadraticEquation() {
 	else if (D < 0) //D가 0보다 작으므로 근은 없다.
 	{
 		y = (-b / (2.0 * a));
-		printf("%lf", abs(D));
 		z = sqrt(abs((long)(D))) / (2.0 * a);
 		if (y == 0)
 		{
