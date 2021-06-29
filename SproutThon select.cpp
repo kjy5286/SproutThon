@@ -6,7 +6,7 @@
 #include <math.h> 
 #include <string.h>
 #include <windows.h>
-#include <cmath>
+
 
 #define pi 3.141592653589793
 
@@ -263,7 +263,7 @@ void QuadraticEquation() {
 	{
 		y = (-b / (2.0 * a));
 		printf("%lf", abs(D));
-		z = sqrt(abs(D)) / (2.0 * a);
+		z = sqrt(abs((long)(D))) / (2.0 * a);
 		if (y == 0)
 		{
 			printf(" 두 허근% lfi, %lfi 입니다\n", z, -z);
@@ -335,7 +335,7 @@ void CubicEquation() {
 
 	else {
 		y = (-b / (2.0 * a));
-		z = sqrt(abs()) / (2.0 * a);
+		z = sqrt(abs((long)(D))) / (2.0 * a);
 		if (y == 0)
 		{
 			printf(" 하나의 실근 %lf와 두 허근% lfi, %lfi 입니다\n", x, z, -z);
