@@ -62,7 +62,7 @@ int arithOper() {
 				printf(" %.2lf / %.2lf = %.6lf\n", x, y, x / y);
 				return 0;
 			}
-		default: printf("잘못된 연산자를 입력하셨습니다.\n");
+		default: printf("\n [ERROR] :: 잘못된 연산자를 입력하셨습니다 ::\n");
 		}
 	}
 }
